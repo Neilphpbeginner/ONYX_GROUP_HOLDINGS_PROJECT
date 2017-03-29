@@ -124,17 +124,26 @@
 
             ?>
         <form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
-            <label>Name:</label>
-            <input type="text" name="name" id="name" value=<?php echo $signupname;?>><br /> 
-            <label>Surname:</label>
-            <input type="text" name="surname" id="surname" value=<?php echo $signupsurename;?>><br /> 
-            <label>Email Address:</label>
-            <input type="text" name="email" id="email" value=<?php echo $signupemail;?>><br /> 
-            <label>Password:</label>
-            <input type="password" name="password" id="password" value=<?php echo $signuppw;?>><br />
-            <label>Re-Enter Password:</label>
-            <input type="password" name="password2" id="password2" value=<?php echo $signuppw2;?>><br />
-            
+            <div class="form-group">
+                <label>Name:</label>
+                <input class="form-control" type="text" name="name" id="name" value=<?php echo $signupname;?>><br /> 
+            </div>
+            <div class="form-group">
+                <label>Surname:</label>
+                <input class="form-control"t type="text" name="surname" id="surname" value=<?php echo $signupsurename;?>><br /> 
+            </div>
+            <div class="form-group">
+                <label>Email Address:</label>
+                <input class="form-control" type="text" name="email" id="email" value=<?php echo $signupemail;?>><br /> 
+            </div>
+            <div class="form-group">
+                <label>Password:</label>
+                <input class="form-control" type="password" name="password" id="password" value=<?php echo $signuppw;?>><br />
+            </div>
+            <div class="form-group">
+                <label>Re-Enter Password:</label>
+                <input class="form-control" type="password" name="password2" id="password2" value=<?php echo $signuppw2;?>><br />
+            </div>
                       
             <?php echo $signupmassage;?><br><br>
             <input type="submit" name="submit" value="Submit">
