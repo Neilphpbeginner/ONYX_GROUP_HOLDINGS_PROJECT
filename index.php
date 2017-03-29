@@ -5,7 +5,7 @@ Project: ONYX Group holding Project
 -->
 
         <?php
-//        Defining the session script to check id the session 
+//        Declaring the session script to check id the session 
             require_once  'session_start.php';
 //        Defining title of the page to be displayed in the title bar.
             $page_title = 'Home Page';
@@ -18,9 +18,11 @@ Project: ONYX Group holding Project
             
        if(!isset($_SESSION['email']) && !isset($_SESSION['ID'])){
            
+//        If no session variables is available then the page will be redirected to the signu page      
+           
            $home   =   'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']).'signup_page.php';
            header('Location:'.$home);
            
-       }
+       } 
            
 ?>
