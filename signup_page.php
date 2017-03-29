@@ -115,8 +115,6 @@
                 else {
                     $signupoutputform=TRUE;
                }
-             
-                
                 
                                 if($signupoutputform){
                                     
