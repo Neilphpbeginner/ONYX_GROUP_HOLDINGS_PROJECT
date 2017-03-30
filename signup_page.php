@@ -10,6 +10,12 @@
         require_once  'Header.php';
         require_once  'appvars.php';
         require_once  'library.php';
+        require_once  'library.php';
+            
+//  Initiating of my object that will capture all modifications done on this file          
+            
+            $monitoringobjt =   new Monitoring("signup_page.php");
+            $monitoringobjt->filemodification();
         
 //  Declaring varialbles required for data to be captured in the database   
         

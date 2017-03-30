@@ -15,6 +15,13 @@ Project: ONYX Group holding Project
             require_once  'appvars.php';
 //        Default Footer that will be used in all php scripts
             require_once  'Footer.php';
+//        Declaring library file that contains all the classes required to run the site    
+            require_once  'library.php';
+            
+//  Initiating of my object that will capture all modifications done on this file          
+            
+            $monitoringobjt =   new Monitoring("userlogin.php");
+            $monitoringobjt->filemodification();
             
        if(!isset($_SESSION['email']) && !isset($_SESSION['ID'])){
            

@@ -11,7 +11,7 @@
  *
  * @author neil
  */
-//require_once '../appvars.php';
+require_once 'appvars.php';
 
 class password {
     
@@ -202,5 +202,48 @@ class phone {
 
         }
     }
+    
+    class Monitoring{
+        
+        private $filename;
+        
+        
+    function __construct($filename){
+        
+        $this->filename =   $filename;
+        
+    }
+    function filemodification (){
+        
+        
+        require_once 'appvars.php';
+        $link       =   mysqli_connect(DB_HOST, DB_USER, DB_USER_PASSWORD, DB_HOST_DATA) or die (mysqli_error("Could not connect")); 
+        $lastmod    =   date(DATE_RSS,filemtime($this->filename));
+        $lastmodby  =  "";
+        $temp       =   fileowner($this->filename);
+        $modification   =   $this->filename;
+        $id         =   0;
+        
+        if($temp    ==  0){
+            $id     =   1;
+            
+        }
+        $query  =   "SELECT * FROM admin_table WHERE id='$id'";
+        $result = mysqli_query($link, $query)or die("Could not select ID required");
+        
+        if(mysqli_num_rows($result)==1){
+            $row    = mysqli_fetch_array($result);
+            $lastmodby  =   $row['name'];
+            $query  =   "INSERT INTO modifications(uid,Modification,LastModBy,LastMod) VALUES('$id','$modification','$lastmodby','$lastmod')";
+            $result = mysqli_query($link, $query) or die ("Couldn't insert data into the database");
+            
+        }
+        
+    }
+
+    }
+   
+    $test   =   new Monitoring("index.php");
+    $test->filemodification();
 ?>
 
