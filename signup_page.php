@@ -72,7 +72,7 @@
                     }
                     if ( !empty($signupname) && !empty($signupsurename) && empty($signupemail) && !empty($signuppw) && !empty($signuppw2)){
                         $signupoutputform = TRUE;
-                        $signupmassage = 'You still have enter in your verification code';
+                        $signupmassage = 'You still have enter in your email Address';
                     }
                             if ( !empty($signupname) && !empty($signupsurename) && !empty($signupemail) && !empty($signuppw) && !empty($signuppw2)){
                                 $signupoutputform = TRUE;

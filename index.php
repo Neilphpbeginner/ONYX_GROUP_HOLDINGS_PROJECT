@@ -22,6 +22,7 @@ Project: ONYX Group holding Project
             
             $monitoringobjt =   new Monitoring("index.php");
             $monitoringobjt->filemodification();
+            echo '<img src="logos-onyx-1.png">';
             
        if(!isset($_SESSION['email']) && !isset($_SESSION['ID'])){
            

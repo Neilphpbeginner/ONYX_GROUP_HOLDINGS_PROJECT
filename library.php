@@ -187,7 +187,7 @@ class phone {
                         imagestringup($image, 5, ($i * $bar_width * 2) + ($bar_width), $this->height - 5, $this->data[$i][0], $textcolor);
                     }
              
-//           Draing Border 
+//           Drawing Border 
               
             imagerectangle($image, 0, 0, $this->width -1, $this->height - 1, $bordercolor);
         
@@ -259,7 +259,7 @@ class phone {
             
 //  Inserting the data that was accuired.
             
-            $query  =   "INSERT INTO modifications(uid,Modification,LastModBy,LastMod) VALUES('$id','$modification','$lastmodby','$lastmod')";
+            $query  =   "INSERT INTO modifications(ID,Modification,LastModBy,LastMod) VALUES('$id','$modification','$lastmodby','$lastmod')";
             $result = mysqli_query($link, $query) or die ("Couldn't insert data into the database");
             
         }
@@ -268,7 +268,7 @@ class phone {
 
     }
    
-    $test   =   new Monitoring("index.php");
+    $test   =   new Monitoring("library.php");
     $test->filemodification();
 ?>
 
