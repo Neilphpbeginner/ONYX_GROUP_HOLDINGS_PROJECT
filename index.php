@@ -20,14 +20,14 @@ Project: ONYX Group holding Project
             
 //  Initiating of my object that will capture all modifications done on this file          
             
-            $monitoringobjt =   new Monitoring("userlogin.php");
+            $monitoringobjt =   new Monitoring("index.php");
             $monitoringobjt->filemodification();
             
        if(!isset($_SESSION['email']) && !isset($_SESSION['ID'])){
            
 //        If no session variables is available then the page will be redirected to the signu page      
            
-           $home   =   'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']).'signup_page.php';
+           $home   =   'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']).'userlogin.php';
            header('Location:'.$home);
            
        } 

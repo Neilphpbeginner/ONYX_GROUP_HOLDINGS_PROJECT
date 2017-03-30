@@ -95,13 +95,7 @@
                                         
                                             $createuser = "INSERT INTO admin_table(name,surname,email,password,joindate) VALUES('$signupname','$signupsurename','$signupemail',SHA('$signuppw'),NOW())";
                                             $createuserresults = mysqli_query($link, $createuser) or die ('Could not register User');
-                                           
-//  Setting up of the Session Variables and cookies if required.
-                                            
-                                            $_SESSION['ID']=$row['ID'];
-                                            $_SESSION['email']=$row['email'];
-                                            setcookie('ID',$row['ID'],time()+(60*60*24*7));
-                                            setcookie('email',$row['email'],time()+(60*60*24*7));
+
                                             
 //  Setting up of the home page if user is created sucsessfully 
                                             

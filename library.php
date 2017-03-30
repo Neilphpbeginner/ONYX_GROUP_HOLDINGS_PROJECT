@@ -205,35 +205,60 @@ class phone {
     
     class Monitoring{
         
+//  Declaring the filename variable that we will use in the class      
+        
         private $filename;
         
+//  Setting up the constuct function so if the class is initiated the construct function will run and ask for the filename variable
         
     function __construct($filename){
         
         $this->filename =   $filename;
         
     }
+    
+//  Start of my function to store data on mysql database for all changes made on the files that has this class initiated
+    
     function filemodification (){
         
+//  App Variables to connect to the relevant database      
         
         require_once 'appvars.php';
+        
+//  Setting up the link required to run the queries to the database.
+        
         $link       =   mysqli_connect(DB_HOST, DB_USER, DB_USER_PASSWORD, DB_HOST_DATA) or die (mysqli_error("Could not connect")); 
+//  Delcaring variables that will later be stored in the database.      
+        
         $lastmod    =   date(DATE_RSS,filemtime($this->filename));
         $lastmodby  =  "";
         $temp       =   fileowner($this->filename);
         $modification   =   $this->filename;
         $id         =   0;
         
+//  Checking to see if the file owner is 0 if so that it can change to 1 for the user neil.
+        
         if($temp    ==  0){
             $id     =   1;
             
         }
+        
+//  First query to the databse for the id in my admin table.
+        
         $query  =   "SELECT * FROM admin_table WHERE id='$id'";
         $result = mysqli_query($link, $query)or die("Could not select ID required");
         
+
+        
         if(mysqli_num_rows($result)==1){
+            
+//  if the query results is returned the following statements will run
+            
             $row    = mysqli_fetch_array($result);
             $lastmodby  =   $row['name'];
+            
+//  Inserting the data that was accuired.
+            
             $query  =   "INSERT INTO modifications(uid,Modification,LastModBy,LastMod) VALUES('$id','$modification','$lastmodby','$lastmod')";
             $result = mysqli_query($link, $query) or die ("Couldn't insert data into the database");
             
